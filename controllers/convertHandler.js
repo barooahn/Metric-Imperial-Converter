@@ -17,11 +17,12 @@ function ConvertHandler() {
   };
   
   this.getNum = function(input) {
-    const result = this.isFraction(input);
+    let result = this.isFraction(input);
     if(result) {
       return eval(result);
     }    
-    return parseFloat(input);
+    result = parseFloat(input);
+    if(result) { return result } else { return 1};
   };
   
   this.getUnit = function(input) {
@@ -123,7 +124,7 @@ function ConvertHandler() {
     if(this.convert(initNum, initUnit) == 'invalid number and unit') return 'invalid number and unit'; 
     const from = this.spellOutUnit(initUnit);
     const to = this.spellOutUnit(returnUnit);
-    var result = `${initNum} ${from} converts to ${returnNum} ${to}`;
+    var result = `${initNum} ${from} converts to ${returnNum.toFixed(5)} ${to}`;
     return result;
   };
   
