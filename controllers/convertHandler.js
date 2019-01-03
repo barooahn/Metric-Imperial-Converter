@@ -17,20 +17,17 @@ function ConvertHandler() {
   };
   
   this.getNum = function(input) {
-    
-    input by looking for the index of the first character
+    let result = '';
     const regex = /[A-Za-z]/;
     const index = input.match(regex);
+    console.log('index', index.index);
     
-    if (index>0) {
-    const result = input  
+    if (index .index> 0) {
+      result = input.substring(0, index.index);  
     } else {
-    let result = this.isFraction(input);
-    if(result) {
-      return eval(result);
-    }    
-    result = parseFloat(input);
-    if(result) { return result } else { return 1};
+      result = 1;
+    }
+    return result;
   };
   
   this.getUnit = function(input) {
@@ -101,7 +98,12 @@ function ConvertHandler() {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
-    let result="";
+    let result = this.isFraction(initNum);
+    if(result) {
+      initNum = eval(result);
+    }    
+    initNum = parseFloat(initNum);
+    if(result) { return result } else { return 1};
     const lower = initUnit.toLowerCase(); 
     switch(lower) {
       case "gal":
