@@ -9,6 +9,9 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
+    const regex = /^\d+\/\d+/;
+    console.log(input.match(regex))
+    
     return parseFloat(input);
   };
   
