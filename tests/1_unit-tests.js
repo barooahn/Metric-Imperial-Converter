@@ -66,10 +66,13 @@ suite('Unit Tests', function(){
     });
     
     test('Unknown Unit Input', function(done) {
-      var input = 'dfgfdg';
-      assert.equal(convertHandler.getNum(input),'unknown unit');
+      const input = ['5', '5.0gallons', '10 liters'];
+      input.forEach(function(ele) {
+        assert.equal(convertHandler.getUnit(ele), "invalid unit");
+      });
       done();
-    });
+    });  
+    
   });
   
   suite('Function convertHandler.getReturnUnit(initUnit)', function() {
@@ -91,7 +94,7 @@ suite('Unit Tests', function(){
       var input = ['gal','l','mi','km','lbs','kg'];
       var expect = ['gallons','liters','miles','kilometer','pounds','kilograms'];
       input.forEach(function(ele, i) {
-        assert.equal(convertHandler.getReturnUnit(ele), expect[i]);
+        assert.equal(convertHandler.spellOutUnit(ele), expect[i]);
       });
       done();
     });
@@ -115,7 +118,7 @@ suite('Unit Tests', function(){
     });
     
     test('Mi to Km', function(done) {
-      var input = [3, 'mil'];
+      var input = [3, 'mi'];
       var expected = 4.82803;
       assert.approximately(convertHandler.convert(input[0],input[1]),expected,0.1); //0.1 tolerance
       done();

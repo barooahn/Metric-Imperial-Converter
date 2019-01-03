@@ -48,15 +48,12 @@ function ConvertHandler() {
   };
   
   this.getUnit = function(input) {
-      // let num = this.isFraction(input);
-      // if(!num) {num = this.getNum(input)}; 
-      // console.log('num', num);
-      // const result = input.replace(num, ''); 
     let result = "invalid unit";
     const index = this.getIndex(input);
     if (index >= 0 && this.getReturnUnit(input.substring(index))!=="invalid unit"){
       result = input.substring(index);  
     } 
+    
     return result;
   };
   
