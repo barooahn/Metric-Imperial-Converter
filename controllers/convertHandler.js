@@ -47,8 +47,30 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function(unit) {
-    var result;
-    
+    let result="";
+    const lower = unit.toLowerCase(); 
+    switch(lower) {
+      case "gal":
+        result = "gallons";
+        break;
+      case "l":
+        result = "litres";
+        break;
+      case "lbs":
+        result = "pounds";
+        break;
+      case "kg":
+        result = "kilograms";
+        break;
+      case "mi":
+        result = "miles";
+        break;
+      case "km":
+        result = "kilometers";
+        break;        
+      default:
+        result = "invalid unit"; 
+      }
     return result;
   };
   
@@ -84,7 +106,7 @@ function ConvertHandler() {
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    var result;
+    var result = {;
     
     return result;
   };
