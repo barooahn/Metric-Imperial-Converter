@@ -11,7 +11,7 @@ function ConvertHandler() {
   this.isFraction = function(input) {
     const regex = /^\d+\/\d+/g;
     console.log(input.match(regex));
-   if(input.match(regex).length == 1) {
+   if(input.match(regex) == 1) {
       return input.match(regex)[0];
     }
     return null;
@@ -24,12 +24,14 @@ function ConvertHandler() {
   };
   
   this.getNum = function(input) {
-    console.log('getNum');
     let result = 'invalid number';
     const badFraction = /(\/)+/g;    
-    if(input.match(badFraction) > 1) {
-    console.log('bad fraction');
+    if(badFraction.test(input)) {
+      console.log('here');
+      if(input.match(badFraction).length > 1){
+      console.log(input.match(badFraction).length);
       return result;
+      }
     }
     console.log('check index');
     const index = this.getIndex(input);
