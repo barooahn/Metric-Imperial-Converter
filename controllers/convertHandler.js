@@ -10,7 +10,7 @@ function ConvertHandler() {
   
   this.isFraction = function(input) {
     const regex = /^\d+\/\d+/g;
-    if(input.match(regex) == 1) {
+   if(input.match(regex) == 1) {
       return input.match(regex)[0];
     }
     return null;
@@ -23,14 +23,17 @@ function ConvertHandler() {
   };
   
   this.getNum = function(input) {
-    let result = 'invalid number' ;
+    let result = 'invalid number';
+    const badFraction = /(\/)+/g;    
+    if(input.match(badFraction).length > 1) {
+      return result;
+    }
     const index = this.getIndex(input);
     if (index > 0) {
       result = input.substring(0, index);  
     } else if (index === 0 && this.getUnit(input) !== "invalid unit"){
       result = 1;
     }  else {
-      console.log('invalid number');
       return result;
     }
     return Math.floor(Number(eval(result))*100000)/100000;
