@@ -9,8 +9,8 @@
 function ConvertHandler() {
   
   this.isFraction = function(input) {
-    const regex = /^\d+\/\d+/;
-    if(input.match(regex) !==null) {
+    const regex = /^\d+\/\d+/g;
+    if(input.match(regex) == 1) {
       return input.match(regex)[0];
     }
     return null;
@@ -30,6 +30,7 @@ function ConvertHandler() {
     } else if (index === 0 && this.getUnit(input) !== "invalid unit"){
       result = 1;
     }  else {
+      console.log('invalid number');
       return result;
     }
     return Math.floor(Number(eval(result))*100000)/100000;
