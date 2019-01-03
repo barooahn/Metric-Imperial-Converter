@@ -7,17 +7,28 @@
 */
 
 function ConvertHandler() {
+  this.isFraction = function(input) {
+    const regex = /^\d+\/\d+/;
+    if(input.match(regex) !==null) {
+      return eval(input.match(regex)[0])
+    }
+    return null;
+  };
+  
+  
   
   this.getNum = function(input) {
-    const regex = /^\d+\/\d+/;
-    console.log(input.match(regex))
-    
+    const result = this.isFraction(input);
+    if(result) {
+      return result;
+    }    
     return parseFloat(input);
   };
   
   this.getUnit = function(input) {
-    const num = this.getNum(input); 
-    const result = input.replace(num, ''); 
+      num = this.getNum(input);
+      const result = input.replace(num, ''); 
+    }
     return result;
   };
   
