@@ -28,15 +28,15 @@ function ConvertHandler() {
     let result = 'invalid number';
     const badFraction = /(\/)+/g;    
     if(badFraction.test(input)) {
-      console.log('here');
+      //console.log('here');
       if(input.match(badFraction).length > 1){
-      console.log(input.match(badFraction).length);
+      //console.log(input.match(badFraction).length);
       return result;
       }
     }
-    console.log('check index');
+    //console.log('check index');
     const index = this.getIndex(input);
-    console.log('index', this.getIndex(input));
+    //console.log('index', this.getIndex(input));
     if (index > 0) {
       result = input.substring(0, index);  
     } else if (index === 0 && this.getUnit(input) !== "invalid unit"){
@@ -96,7 +96,7 @@ function ConvertHandler() {
         result = "gallons";
         break;
       case "l":
-        result = "litres";
+        result = "liters";
         break;
       case "lbs":
         result = "pounds";
