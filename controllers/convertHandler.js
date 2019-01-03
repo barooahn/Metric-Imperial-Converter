@@ -100,12 +100,13 @@ function ConvertHandler() {
         result = initNum / miToKm;
         break;        
       default:
-        result = "invalid number"; 
+        result = 'invalid number and unit'; 
       }
     return result;
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
+    if(this.convert(initNum, initUnit) == 'invalid number and unit') return 'invalid number and unit'; 
     const from = this.spellOutUnit(initUnit);
     const to = this.spellOutUnit(returnUnit);
     var result = `${initNum} ${from} converts to ${returnNum} ${to}`;
