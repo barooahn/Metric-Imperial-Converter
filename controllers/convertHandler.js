@@ -9,16 +9,14 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    console.log('here');
-    const result = input.replace( /[0-9]+||\./g, '');
-    console.log('imput', input);
-    return result;
+    return parseFloat(input);
   };
   
   this.getUnit = function(input) {
-    var result;
-    
-    return result;
+    const num = this.getNum(input); 
+    //var result = input.strReplace();
+
+    return 
   };
   
   this.getReturnUnit = function(initUnit) {
