@@ -51,10 +51,13 @@ function ConvertHandler() {
     let result = "invalid unit";
     const index = this.getIndex(input);
     if (index >= 0 && this.getReturnUnit(input.substring(index))!=="invalid unit"){
-      result = input.substring(index);  
+      result = input.substring(index).toLowerCase();  
     } 
-    
-    return result;
+    if (result === 'l') {
+      return 'L';
+    } else {
+      return result;
+    }
   };
   
   this.getReturnUnit = function(initUnit) {
