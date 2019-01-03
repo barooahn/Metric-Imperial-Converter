@@ -20,7 +20,8 @@ function ConvertHandler() {
   this.getIndex = function(input) {
     const regex = /[A-Za-z]/;
     const index = input.match(regex);
-    return index.index;
+    if(index) {return index.index}
+    else {return null};
   };
   
   this.getNum = function(input) {
