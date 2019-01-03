@@ -16,14 +16,17 @@ function ConvertHandler() {
     return null;
   };
   
-  this.getNum = function(input) {
-    let result = '';
+  this.getIndex = function(input) {
     const regex = /[A-Za-z]/;
     const index = input.match(regex);
-    console.log('index', index.index);
-    
-    if (index .index> 0) {
-      result = input.substring(0, index.index);  
+    return index.index;
+  };
+  
+  this.getNum = function(input) {
+    let result = '';
+    const index = this.getIndex(input);
+    if (index > 0) {
+      result = input.substring(0, index);  
     } else {
       result = 1;
     }
