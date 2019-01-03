@@ -25,10 +25,12 @@ function ConvertHandler() {
   this.getNum = function(input) {
     let result = '';
     const index = this.getIndex(input);
-    if (index >= 0) {
+    if (index > 0) {
       result = input.substring(0, index);  
-    } else {
+    } else if (index === 0){
       result = 1;
+    }  else {
+      return 'invalid number' 
     }
     return Math.floor(Number(eval(result))*100000)/100000;
   };
