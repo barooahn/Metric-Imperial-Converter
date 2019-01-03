@@ -23,14 +23,14 @@ function ConvertHandler() {
   };
   
   this.getNum = function(input) {
-    let result = '';
+    let result = 'invalid number' ;
     const index = this.getIndex(input);
     if (index > 0) {
       result = input.substring(0, index);  
     } else if (index === 0 && this.getUnit(input) !== "invalid unit"){
       result = 1;
     }  else {
-      return 'invalid number' 
+      return result;
     }
     return Math.floor(Number(eval(result))*100000)/100000;
   };
