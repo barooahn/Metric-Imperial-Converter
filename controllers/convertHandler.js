@@ -14,13 +14,21 @@ function ConvertHandler() {
   
   this.getUnit = function(input) {
     const num = this.getNum(input); 
-    //var result = input.strReplace();
-
-    return 
+    const result = input.replace(num, ''); 
+    return result;
   };
   
   this.getReturnUnit = function(initUnit) {
-    var result;
+    const result="";
+    const lower = init 
+    
+    switch(initUnit) {
+      case "gal":
+          result = "L";
+          break;
+        case "L"
+        
+                   }
     
     return result;
   };
