@@ -25,7 +25,7 @@ function ConvertHandler() {
   this.getNum = function(input) {
     let result = '';
     const index = this.getIndex(input);
-    if (index > 0) {
+    if (index >= 0) {
       result = input.substring(0, index);  
     } else {
       result = 1;
@@ -34,12 +34,17 @@ function ConvertHandler() {
   };
   
   this.getUnit = function(input) {
-      let num = this.isFraction(input);
-      if(!num) {num = this.getNum(input)}; 
-      console.log('num', num);
-      const result = input.replace(num, ''); 
-      return result;
-  };
+      // let num = this.isFraction(input);
+      // if(!num) {num = this.getNum(input)}; 
+      // console.log('num', num);
+      // const result = input.replace(num, ''); 
+    let result = "invalid unit";
+    const index = this.getIndex(input);
+      if (index >= 0) {
+        result = input.substring(index);  
+      } 
+        return result;
+    };
   
   this.getReturnUnit = function(initUnit) {
     let result="";
@@ -129,7 +134,6 @@ function ConvertHandler() {
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    if(this.convert(initNum, initUnit) == 'invalid number and unit') return 'invalid number and unit'; 
     const from = this.spellOutUnit(initUnit);
     const to = this.spellOutUnit(returnUnit);
     var result = `${initNum} ${from} converts to ${returnNum.toFixed(5)} ${to}`;
