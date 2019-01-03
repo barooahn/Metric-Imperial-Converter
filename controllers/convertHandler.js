@@ -9,9 +9,7 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    var numbers = /[0-9]+/;
-    var result = input.;
-    
+    var result = input.replace( /\D+/g, '');;
     return result;
   };
   
