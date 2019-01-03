@@ -19,17 +19,30 @@ function ConvertHandler() {
   };
   
   this.getReturnUnit = function(initUnit) {
-    const result="";
-    const lower = init 
-    
-    switch(initUnit) {
+    let result="";
+    const lower = initUnit.toLowerCase(); 
+    switch(lower) {
       case "gal":
-          result = "L";
-          break;
-        case "L"
-        
-                   }
-    
+        result = "L";
+        break;
+      case "l":
+        result = "gal";
+        break;
+      case "lbs":
+        result = "Kg";
+        break;
+      case "kg":
+        result = "lbs";
+        break;
+      case "mi":
+        result = "km";
+        break;
+      case "km":
+        result = "mi";
+        break;        
+      default:
+        result = "invalid unit"; 
+      }
     return result;
   };
 
