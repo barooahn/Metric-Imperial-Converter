@@ -115,9 +115,9 @@ function ConvertHandler() {
         result = initNum / miToKm;
         break;        
       default:
-        result = 'invalid number and unit'; 
+        result = 'invalid unit'; 
       }
-    return result;
+    return Math.floor(result*100000)/100000;
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
