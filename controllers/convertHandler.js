@@ -71,7 +71,7 @@ function ConvertHandler() {
         result = "gal";
         break;
       case "lbs":
-        result = "Kg";
+        result = "kg";
         break;
       case "kg":
         result = "lbs";
