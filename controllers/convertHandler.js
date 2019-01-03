@@ -27,7 +27,7 @@ function ConvertHandler() {
     } else {
       result = 1;
     }
-    return result;
+    return eval(result);
   };
   
   this.getUnit = function(input) {
@@ -98,12 +98,7 @@ function ConvertHandler() {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
-    let result = this.isFraction(initNum);
-    if(result) {
-      initNum = eval(result);
-    }    
-    initNum = parseFloat(initNum);
-    if(result) { return result } else { return 1};
+    let result = '';
     const lower = initUnit.toLowerCase(); 
     switch(lower) {
       case "gal":
