@@ -17,6 +17,14 @@ function ConvertHandler() {
   };
   
   this.getNum = function(input) {
+    
+    input by looking for the index of the first character
+    const regex = /[A-Za-z]/;
+    const index = input.match(regex);
+    
+    if (index>0) {
+    const result = input  
+    } else {
     let result = this.isFraction(input);
     if(result) {
       return eval(result);
