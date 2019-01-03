@@ -27,7 +27,7 @@ function ConvertHandler() {
     } else {
       result = 1;
     }
-    return eval(result);
+    return Math.floor(Number(eval(result))*100000)/100000;
   };
   
   this.getUnit = function(input) {
