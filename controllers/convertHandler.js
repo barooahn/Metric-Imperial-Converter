@@ -7,29 +7,29 @@
 */
 
 function ConvertHandler() {
+  
   this.isFraction = function(input) {
     const regex = /^\d+\/\d+/;
     if(input.match(regex) !==null) {
-      return eval(input.match(regex)[0])
+      return input.match(regex)[0];
     }
     return null;
   };
   
-  
-  
   this.getNum = function(input) {
     const result = this.isFraction(input);
     if(result) {
-      return result;
+      return eval(result);
     }    
     return parseFloat(input);
   };
   
   this.getUnit = function(input) {
-      num = this.getNum(input);
+      let num = this.isFraction(input);
+      if(!num) {num = this.getNum(input)}; 
+      console.log('num', num);
       const result = input.replace(num, ''); 
-    }
-    return result;
+      return result;
   };
   
   this.getReturnUnit = function(initUnit) {
@@ -127,6 +127,6 @@ function ConvertHandler() {
     return result;
   };
   
-}
+};
 
 module.exports = ConvertHandler;
