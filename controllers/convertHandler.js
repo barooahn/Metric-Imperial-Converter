@@ -82,10 +82,10 @@ function ConvertHandler() {
     const lower = initUnit.toLowerCase(); 
     switch(lower) {
       case "gal":
-        result = initNum / galToL;
+        result = initNum * galToL;
         break;
       case "l":
-        result = initNum * galToL;
+        result = initNum / galToL;
         break;
       case "lbs":
         result = initNum * lbsToKg;
@@ -108,7 +108,7 @@ function ConvertHandler() {
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     const from = this.spellOutUnit(initUnit);
     const to = this.spellOutUnit(returnUnit);
-    var result = `${initNum} ${from} converts to returnNum ${to}`;
+    var result = `${initNum} ${from} converts to ${returnNum} ${to}`;
     return result;
   };
   
