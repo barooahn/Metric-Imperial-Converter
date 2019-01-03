@@ -9,7 +9,9 @@
 function ConvertHandler() {
   
   this.getNum = function(input) {
-    var result = input.replace( /\D+/g, '');;
+    console.log('here');
+    const result = input.replace( /[0-9]+||\./g, '');
+    console.log('imput', input);
     return result;
   };
   

@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //securtiy
-app.use(helmet.contentSecurityPolicy({directives: {defaultSrc: ["'self'"], scriptSrc: ["'self'"]}}))
+app.use(helmet.xssFilter());
+app.use(helmet.noSniff());
 
 
 //Index page (static HTML)
