@@ -27,7 +27,7 @@ function ConvertHandler() {
     const index = this.getIndex(input);
     if (index > 0) {
       result = input.substring(0, index);  
-    } else if (index === 0){
+    } else if (index === 0 && this.getUnit(input) !== "invalid unit"){
       result = 1;
     }  else {
       return 'invalid number' 
@@ -42,11 +42,11 @@ function ConvertHandler() {
       // const result = input.replace(num, ''); 
     let result = "invalid unit";
     const index = this.getIndex(input);
-      if (index >= 0) {
-        result = input.substring(index);  
-      } 
-        return result;
-    };
+    if (index >= 0 && this.getReturnUnit(input.substring(index))!=="invalid unit"){
+      result = input.substring(index);  
+    } 
+    return result;
+  };
   
   this.getReturnUnit = function(initUnit) {
     let result="";
